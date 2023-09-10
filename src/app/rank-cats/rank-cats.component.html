@@ -1,0 +1,24 @@
+<ng-container *ngIf="cats$ | async as catsList">
+  <ng-container *ngIf="!catsList.isLoading; else loading">
+    <ng-container *ngIf="catsList.cats.length > 0; else error">
+      <h2 class="rank-cats__title">Choose a cat</h2>
+      <div class="rank-cats__container">
+        <div *ngFor="let cat of catsList.cats" class="rank-cats__cat">
+          <div [style.background-image]= "'url(' + cat.url + ')'" class="rank-cats__cat-image" (click)="voteForCat(cat.id)"></div>
+          <p> Number of votes: {{ cat.score }} </p>
+        </div>
+      </div>
+      <div class="rank-cats__ranking-link">
+        <a routerLink="/cats">Ranking</a>
+      </div>
+    </ng-container>
+  </ng-container>
+<ng-container>
+
+<ng-template #loading>
+  <mat-progress-spinner color="primary" mode="indeterminate"></mat-progress-spinner>
+</ng-template>
+
+<ng-template #error>
+  <app-error></app-error>
+</ng-template>

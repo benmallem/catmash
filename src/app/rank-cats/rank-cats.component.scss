@@ -1,0 +1,60 @@
+:host{
+  $color: #33006F;
+
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+
+  .rank-cats{
+    &__title{
+      margin: 0;
+      text-align: center;
+      color: $color;
+      text-decoration: underline;
+    }
+
+    &__container{
+      display: flex;
+      justify-content: space-around;
+      gap: 20px;
+      padding: 0 12px;
+    }
+
+    &__cat {
+      @media (max-width: 600px) {
+        flex: 0 1 200px;
+      }
+      flex: 0 1 400px;
+    }
+
+
+    &__cat-image{
+      @media (max-width: 600px) {
+        height: 200px;
+      }
+      height: 400px;
+      background-position: center;
+      background-size: cover;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    &__ranking-link {
+      text-align:center;
+
+      a {
+        padding: 10px 16px;
+        background-color: $color;
+        border-radius: 5px;
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+  }
+
+  p {
+    text-align: center;
+    color: $color;
+  }
+}

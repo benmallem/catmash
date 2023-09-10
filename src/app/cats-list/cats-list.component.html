@@ -1,0 +1,20 @@
+<ng-container *ngIf="cats$ | async as cats">
+  <ng-container *ngIf="cats.length > 0; else error">
+    <nav><a routerLink="/">Catmash</a></nav>
+    <h2 class="cats-list__title">Cats Ranking</h2>
+    <ul class="cats-list__list">
+      <li *ngFor="let cat of cats | slice:0:imagePerSequence * currentSequence">
+        <div [style.background-image]= "'url(' + cat.url + ')'" class="cats-list__cat"></div>
+        <p>Number of votes: {{ cat.score }}</p>
+      </li>
+    </ul>
+    <div *ngIf="currentSequence < (cats.length / imagePerSequence)" class="cats-list__cats-displayed">
+      <p class="cats-list__description">You see {{currentSequence * imagePerSequence}} cats out of {{cats.length}} cats</p>
+      <button (click)="loadCats()">Load cats</button>
+    </div>
+  </ng-container>
+</ng-container>
+
+<ng-template #error>
+  <app-error></app-error>
+</ng-template>

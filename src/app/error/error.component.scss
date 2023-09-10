@@ -1,0 +1,43 @@
+:host {
+  $navbar-height: 64px;
+  $color: #33006F;
+
+  height: 100%;
+
+  p {
+    color: $color ;
+    font-size: 32px;
+  }
+
+  nav{
+    display: flex;
+    align-items: center;
+    background-color: $color;
+    height: $navbar-height;
+
+    a {
+      color: #fff;
+      font-size: 24px;
+      padding: 0 10px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+
+  .error{
+    &__content{
+      display:flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: calc(100% - $navbar-height);
+    }
+
+    &__link {
+      color: $color;
+      border: 1px solid $color;
+      padding: 10px 16px;
+      text-decoration: none;
+    }
+  }
+}
